@@ -2,7 +2,7 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.QtGui import QPixmap
-from log import maping
+from log import Map
 from PyQt5.QtCore import Qt
 
 
@@ -12,7 +12,9 @@ class MainWidget(QMainWindow):
         uic.loadUi('main.ui', self)
         self.setWindowTitle('Map')
         self.delta = 0.005
-        name = maping(self.delta)
+        self.map = Map()
+        self.map.toponim("Москва")
+        name = self.map.maping(self.delta)
         pixmap = QPixmap(name)
         self.image.setPixmap(pixmap)
 
@@ -26,7 +28,7 @@ class MainWidget(QMainWindow):
         self.rendering()
 
     def rendering(self):
-        name = maping(self.delta)
+        name = self.map.maping(self.delta)
         pixmap = QPixmap(name)
         self.image.setPixmap(pixmap)
 
