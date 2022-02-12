@@ -14,6 +14,7 @@ class MainWidget(QMainWindow):
         self.delta = 0.005
         self.map = Map()
         self.map.toponim("Москва")
+        self.btn_s.clicked.connect(self.search)
         name = self.map.maping(self.delta)
         pixmap = QPixmap(name)
         self.image.setPixmap(pixmap)
@@ -39,6 +40,12 @@ class MainWidget(QMainWindow):
         name = self.map.maping(self.delta)
         pixmap = QPixmap(name)
         self.image.setPixmap(pixmap)
+
+    def search(self):
+        text = self.lineEdit.text()
+        if text != "":
+            self.map.toponim(text)
+        self.rendering()
 
 
 if __name__ == '__main__':
