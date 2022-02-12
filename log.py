@@ -33,13 +33,13 @@ class Map:
         toponym_coodrinates = toponym["Point"]["pos"]
         self.toponym_longitude, self.toponym_lattitude = toponym_coodrinates.split(" ")
 
-    def maping(self, delta):
+    def maping(self, delta,view):
         self.delta = str(delta)
 
         map_params = {
             "ll": ",".join([self.toponym_longitude, self.toponym_lattitude]),
             "spn": ",".join([self.delta, self.delta]),
-            "l": "map"
+            "l": view
         }
 
         map_api_server = "http://static-maps.yandex.ru/1.x/"

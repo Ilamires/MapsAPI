@@ -50,6 +50,45 @@
      <string>Искать</string>
     </property>
    </widget>
+   <widget class="QRadioButton" name="mapRadio_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>560</y>
+      <width>95</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Гибрид</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="satRadio">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>540</y>
+      <width>95</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Спутник</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="mapRadio">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>520</y>
+      <width>95</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Схема</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

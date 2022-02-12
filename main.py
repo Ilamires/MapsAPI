@@ -1,9 +1,9 @@
 import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from log import Map
-from PyQt5.QtCore import Qt
 
 
 class MainWidget(QMainWindow):
@@ -13,9 +13,11 @@ class MainWidget(QMainWindow):
         self.setWindowTitle('Map')
         self.delta = 0.005
         self.map = Map()
-        self.map.toponim("Москва")
         self.btn_s.clicked.connect(self.search)
-        name = self.map.maping(self.delta)
+        self.mapRadio.setChecked(True)
+        self.view = 'map'
+        self.map.toponim('Москва')
+        name = self.map.maping(self.delta, self.view)
         pixmap = QPixmap(name)
         self.image.setPixmap(pixmap)
 
@@ -37,7 +39,7 @@ class MainWidget(QMainWindow):
         self.rendering()
 
     def rendering(self):
-        name = self.map.maping(self.delta)
+        name = self.map.maping(self.delta, self.view)
         pixmap = QPixmap(name)
         self.image.setPixmap(pixmap)
 
@@ -45,8 +47,14 @@ class MainWidget(QMainWindow):
         text = self.lineEdit.text()
         if text != "":
             self.map.toponim(text)
-        self.rendering()
-        self.image.setFocus()
+            if self.mapRadio.isChecked():
+                self.view = 'map'
+            elif self.satRadio.isChecked():
+                self.view = 'sat'
+            elif self.sklRadio.isChecked():
+                self.view = 'skl'
+            self.rendering()
+            self.image.setFocus()
 
 
 if __name__ == '__main__':
