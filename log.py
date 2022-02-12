@@ -5,7 +5,7 @@ from PIL import Image
 import PyQt5
 
 
-def maping():
+def maping(delta):
     toponym_to_find = "москва"
 
     geocoder_api_server = "http://geocode-maps.yandex.ru/1.x/"
@@ -27,7 +27,7 @@ def maping():
     toponym_coodrinates = toponym["Point"]["pos"]
     toponym_longitude, toponym_lattitude = toponym_coodrinates.split(" ")
 
-    delta = "0.005"
+    delta = str(delta)
 
     map_params = {
         "ll": ",".join([toponym_longitude, toponym_lattitude]),
