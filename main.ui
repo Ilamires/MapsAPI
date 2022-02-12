@@ -50,7 +50,7 @@
      <string>Искать</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="mapRadio_2">
+   <widget class="QRadioButton" name="sklRadio">
     <property name="geometry">
      <rect>
       <x>40</x>
