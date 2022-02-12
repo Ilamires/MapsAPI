@@ -46,6 +46,7 @@ class MainWidget(QMainWindow):
         if text != "":
             self.map.toponim(text)
         self.rendering()
+        self.image.setFocus()
 
 
 if __name__ == '__main__':
