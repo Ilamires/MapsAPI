@@ -25,6 +25,14 @@ class MainWidget(QMainWindow):
         if event.key() == Qt.Key_PageDown:
             if self.delta < 5:
                 self.delta += 0.005
+        if event.key() == Qt.Key_Up:
+            self.map.cord(0, 0.001)
+        if event.key() == Qt.Key_Left:
+            self.map.cord(-0.001, 0)
+        if event.key() == Qt.Key_Right:
+            self.map.cord(0.001, 0)
+        if event.key() == Qt.Key_Down:
+            self.map.cord(0, -0.001)
         self.rendering()
 
     def rendering(self):

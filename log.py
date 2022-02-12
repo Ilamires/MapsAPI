@@ -4,12 +4,17 @@ import requests
 from PIL import Image
 import PyQt5
 
+
 class Map:
 
     def __init__(self):
         self.delta = "0.005"
         self.toponym_longitude = ""
         self.toponym_lattitude = ""
+
+    def cord(self, longitude, lattitude):
+        self.toponym_lattitude = str(float(self.toponym_lattitude) + float(lattitude))
+        self.toponym_longitude = str(float(self.toponym_longitude) + float(longitude))
 
     def toponim(self, name):
         toponym_to_find = name
